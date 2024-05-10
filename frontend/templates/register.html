@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Web App</title>
+        <link rel="stylesheet" href="../static/css/styleRegister.css" type="text/css" media="all" />
+        <script src="../static/js/appRegister.js" type="text/javascript" charset="utf-8"></script>
+    </head>
+    <body>
+        <h1> Register Users </h1>
+        <form action="/register_user" method="post">
+            <img src="../static/images/register.png" /> <br/> <br/>
+            <label> Id </label> <input type="number" name="id" /> <br/> <br/>
+            <label> Name </label> <input type="text" name="name" /> <br/> <br/>
+            <label> Lastname </label> <input type="text" name="lastname" /> <br/> <br/>
+            <label> Birthday </label> <input type="date" name="birthday" /> <br/> <br/>
+            <button onClick={register_user()}> Register </button>
+        </form>
+    </body>
+</html>
