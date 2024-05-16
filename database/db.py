@@ -28,11 +28,14 @@ def insert_records(id, name, lastname, birthday):
             cursor.execute(query)
             connection.commit()
             print("User added")
+            return True
         else:
             print("Error in the connection")
+            return False
         
     except Exception as err:
         print("Error creating the user", err)
+        return False
         
 def consult_records(id):
     query = "SELECT * FROM users WHERE id = " + id

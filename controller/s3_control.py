@@ -12,8 +12,16 @@ def connection_s3():
         print("Error connecting to s3", err)
         return None
 
-def upload_file_s3(s3_connection):
-    path_local = "requirements.txt"
+def save_file(id, photo):
+    photo_extension = photo.filename.split(".")[1]
+    photo_path = "/tmp/" + id + "." + photo_extension
+    photo.save(photo_path)
+    return photo_path
+
+def upload_file_s3(s3_connection, photo_path):
     bucket_name = "my-repo-images"
-    path_s3 = "images/" + path_local
-    s3_connection.meta.client.upload_file(path_local, bucket_name, path_s3)
+    path_s3 = "images/" + photo_path.split("/")[2]
+    s3_connection.meta.client.upload_file(photo_path, bucket_name, path_s3)
+    
+
+    
